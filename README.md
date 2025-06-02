@@ -1,1 +1,1 @@
-# This simple project shows how to do CI/CD for a Docker Image with Github Action.
+# This simple project shows how to CI/CD a Docker Image with Github Action.
