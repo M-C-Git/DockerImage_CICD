@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  DockerImage_CI
+  DockerImage_CI:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,12 +23,12 @@ jobs:
       runs: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-      
+
     - name: run test
       run: |
         pytest
 
-  DockerImage_CD
+  DockerImage_CD:
     needs: DockerImage_CI
     runs-on: ubuntu-latest
 
@@ -44,14 +44,13 @@ jobs:
       with:
         username: ${{var.DOCKERHUB_USERNAME}}
         password: ${{secrets.DOCKERHUB_TOKEN}}
-    
+
     - name: build and publish Docker Image
       uses: docker/build-push-action@v4
       with:
         cotext: .
         push: true
         tag: ${{var.DOCKERHUB_USERNAME}}/flask-app:latest
-    
+ 
     - name: Image digest
       run: echo ${{steps.Docker_CD.ouput.digest}}
-      
