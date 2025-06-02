@@ -1,0 +1,17 @@
+# Use the base image
+FROM python:3.9-slim
+
+# setup the working directory
+WORKDIR /app
+
+# copy the current directory content to to container diretory app/
+COPY . /app
+
+# install dependencies
+RUN pip install -r requirements.txt
+
+# expose port for flask
+EXPOSE 5000
+
+# run app.py when the container launch
+CMD ["python", "app.py"]
