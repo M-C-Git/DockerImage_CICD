@@ -1,1 +1,4 @@
-# This simple project shows how to CI/CD a Docker Image with Github Action.
+## This project presents how to perform CI/CD with Github Action on a Docker Image .
+## Project workflow chart
+
+     ![alt text](image.png)
