@@ -51,7 +51,7 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        file: ./DockerFile    # Only need it, when the name != "Dockerfile"
+        file: ./DockerFile     # Only need it, when the name != "Dockerfile"
         push: true
         tags: ${{secrets.DOCKERHUB_USERNAME}}/flask-app:latest
 
